@@ -32,7 +32,6 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                 {comment.comment}
                 <br /><br />
                 -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
-                <br /><br />
             </li>
         );
   	});
@@ -82,9 +81,9 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
     }
   }
   const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !(val) || (val.length <= len);
-const minLength = (len) => (val) => val && (val.length >= len);
-class CommentForm extends Component {
+  const maxLength = (len) => (val) => !(val) || (val.length <= len);
+  const minLength = (len) => (val) => val && (val.length >= len);
+  class CommentForm extends Component {
     constructor(props) {
         super(props);
 
@@ -94,15 +93,11 @@ class CommentForm extends Component {
         this.toggleModal = this.toggleModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // 弹窗按钮
     toggleModal() {
         this.setState({
           isModalOpen: !this.state.isModalOpen
         });
     }
-
-    // 提交评论
     handleSubmit(values) {
 
         this.toggleModal();
